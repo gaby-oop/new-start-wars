@@ -1,45 +1,68 @@
+import { People } from "../component/people";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			peoples: [],
+			planets: [],
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			loadPeoples: () => {
+				fetch("https://www.swapi.tech/api/people/")
+					.then(res => res.json())
+					.then(data => {
+						let people = getStore().peoples;
+						for (let i = 0; i < data.results.length; i++) {
+							fetch(data.results[i].url)
+								.then(res => res.json())
+								.then(dataProp => {
+									people.push(dataProp.result.properties);
+									setStore({ peoples: [...people] });
+								});
+						}
+					})
+					.catch(err => console.error(err));
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			loadPlanets: () => {
+				fetch("https://www.swapi.tech/api/planets/")
+					.then(res => res.json())
+					.then(data => {
+						let planet = getStore().planets;
+						for (let i = 0; i < data.results.length; i++) {
+							fetch(data.results[i].url)
+								.then(res => res.json())
+								.then(dataProp => {
+									planet.push(dataProp.result.properties);
+									setStore({ planets: [...planet] });
+								});
+						}
+					})
+					.catch(err => console.error(err));
 			},
-			changeColor: (index, color) => {
-				//get the store
+			addFavorite: (name, type) => {
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+				let count = 0;
+				store.favorites.map(each => {
+					if (each.name == name) {
+						count = 1;
+					}
 				});
-
-				//reset the global store
-				setStore({ demo: demo });
+				if (count == 0) {
+					setStore({
+						favorites: [
+							...store.favorites,
+							{
+								name: name,
+								type: type
+							}
+						]
+					});
+				}
+				console.log(store.favorites);
 			}
 		}
 	};
 };
-
 export default getState;

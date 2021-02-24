@@ -20,7 +20,7 @@ const injectContext = PassedComponent => {
 					})
 			})
 		);
-
+		// TODA ESA CONTS ES PARA CONTROLAR EL FLUX
 		useEffect(() => {
 			/**
 			 * EDIT THIS!
