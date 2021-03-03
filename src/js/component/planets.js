@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Planets = props => {
+	const { actions } = useContext(Context);
 	return (
 		<div className="container">
 			<div className="card" style={{ width: "18rem" }}>
@@ -27,10 +29,11 @@ export const Planets = props => {
 								Learn More!
 							</button>
 						</Link>
-
-						<button type="button" className="btn btn-outline-warning">
-							{<i className="fas fa-heart" />}
-						</button>
+						<Link onClick={() => actions.addFavorite(props.name, "planets")}>
+							<button type="button" className="btn btn-outline-warning">
+								{<i className="fas fa-heart" />}
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>
