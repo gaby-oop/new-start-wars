@@ -12,7 +12,7 @@ export const Planetas = () => {
 			<div className="row">
 				<div className="col-md-6">
 					<img
-						src="https://specials-images.forbesimg.com/imageserve/5e160edc9318b800069388e8/960x0.jpg?fit=scale"
+						src="https://i1.wp.com/elpodio.news/wp-content/uploads/2020/05/universo-paralelo.jpg?fit=800%2C510&ssl=1"
 						style={{ width: "100%" }}
 					/>
 				</div>

@@ -1,7 +1,7 @@
 // yo necesito(yo importo, yo hago el import) React y use state desde el modulo  o librería react
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "/workspace/react-hello-webapp/src/js/store/appContext.js";
+import { Context } from "../store/appContext";
 import logoStarWars from "../../img/star-wars.png";
 import { Dropdown, DropdownMenu, DropdownToggle, DropdownItem } from "reactstrap";
 

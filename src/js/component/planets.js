@@ -9,7 +9,7 @@ export const Planets = props => {
 		<div className="container">
 			<div className="card" style={{ width: "18rem" }}>
 				<img
-					src="https://www.mural-wallpaper.com/wp-content/uploads/2020/11/UN-DIS74.jpg"
+					src="https://s2.best-wallpaper.net/wallpaper/1680x1050/1307/Beautiful-planets-stars-galaxies_1680x1050.jpg"
 					className="card-img-top"
 					alt="..."
 					style={{ width: "100%" }}

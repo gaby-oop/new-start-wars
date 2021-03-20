@@ -1,10 +1,9 @@
 //import "../../styles/home.scss";
 import React, { useState, useEffect, setState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Context } from "/workspace/react-hello-webapp/src/js/store/appContext.js";
-import { People } from "/workspace/react-hello-webapp/src/js/component/people.js";
-import { Planets } from "/workspace/react-hello-webapp/src/js/component/planets.js";
-//mport PropTypes from "prop-types";
+import { Context } from "../store/appContext";
+import { People } from "../component/people";
+import { Planets } from "../component/planets";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -17,7 +16,9 @@ export const Home = () => {
 
 	return (
 		<div className="container">
-			<h1 className="text-daner">Personajes</h1>
+			<h1 className="text-daner">
+				<i>Personajes</i>
+			</h1>
 			<div className="align-items-center text-center mt5">
 				<div className="d-flex flex-row p-4" style={{ overflow: "auto" }}>
 					<div className="row">
@@ -39,7 +40,9 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<h1 className="text-daner">Planets</h1>
+			<h1 className="text-daner">
+				<i>Planets</i>
+			</h1>
 			<div className="align-items-center text-center mt5">
 				<div className="d-flex flex-row p-4" style={{ overflow: "auto" }}>
 					<div className="row">

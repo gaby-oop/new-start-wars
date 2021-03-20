@@ -33,7 +33,7 @@ const Layout = () => {
 							<Planetas />
 						</Route>
 						<Route>
-							<h1>hyyyyyyyykj!</h1>
+							<h1>hyyyy!</h1>
 						</Route>
 					</Switch>
 					<Footer />
